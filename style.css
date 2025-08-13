@@ -261,22 +261,36 @@ a:hover {
     }
 }
 
-/* Logo 样式 */
-.main-nav .logo img {
-    height: 40px; /* 控制导航栏Logo的高度 */
-    width: auto; /* 宽度自动，保持比例 */
-    display: block; /* 解决图片底部的空白间隙问题 */
-}
+/* --- 新Logo样式 (图文分离版) --- */
 
-.main-footer .logo img {
-    height: 50px; /* 控制页脚Logo的高度 */
-    width: auto;
-    margin-bottom: 1rem; /* 增加一点下边距 */
-}
-
-/* 移除旧的logo文字样式，因为现在是图片了 */
+/* 通用设置：让logo容器能显示背景图 */
 .main-nav .logo,
 .main-footer .logo {
-    font-size: 1rem; /* 重置字体大小，避免影响布局 */
-    font-weight: normal;
+    background-image: url('logo-symbol.png');
+    background-repeat: no-repeat;
+    background-position: left center; /* 图片在左侧，并垂直居中 */
+    display: flex;
+    align-items: center;
+}
+
+/* 导航栏Logo样式 */
+.main-nav .logo {
+    background-size: 35px; /* 控制Logo符号的大小 */
+    padding-left: 45px; /* 在文字左边留出空间给Logo符号 */
+}
+
+/* 页脚Logo样式 */
+.main-footer .logo {
+    background-size: 45px; /* 页脚的符号可以稍大一些 */
+    padding-left: 55px; /* 同样留出空间 */
+    justify-content: center; /* 让文字和Logo这个整体在页脚居中 */
+    display: inline-flex; /* 关键：使其能正确居中 */
+    color: var(--pearl-white); /* 确保页脚文字是白色 */
+}
+
+/* 恢复页脚Logo原有的字体大小和边距 */
+.main-footer .logo {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
