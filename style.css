@@ -291,6 +291,6 @@ a:hover {
 /* 恢复页脚Logo原有的字体大小和边距 */
 .main-footer .logo {
     font-family: var(--heading-font);
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* <-- 已修改，和顶部保持一致 */
     margin-bottom: 1rem;
 }
