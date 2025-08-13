@@ -260,3 +260,23 @@ a:hover {
         padding: 4rem 1rem;
     }
 }
+
+/* Logo 样式 */
+.main-nav .logo img {
+    height: 40px; /* 控制导航栏Logo的高度 */
+    width: auto; /* 宽度自动，保持比例 */
+    display: block; /* 解决图片底部的空白间隙问题 */
+}
+
+.main-footer .logo img {
+    height: 50px; /* 控制页脚Logo的高度 */
+    width: auto;
+    margin-bottom: 1rem; /* 增加一点下边距 */
+}
+
+/* 移除旧的logo文字样式，因为现在是图片了 */
+.main-nav .logo,
+.main-footer .logo {
+    font-size: 1rem; /* 重置字体大小，避免影响布局 */
+    font-weight: normal;
+}
