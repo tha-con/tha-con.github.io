@@ -1,8 +1,8 @@
 /* 全局样式与变量定义 */
 :root {
-    --deep-blue: #003366;
-    --metal-gray: #4A4A4A;
-    --light-gray: #f4f4f4;
+    --deep-blue: #0A2240; /* 稍作调整，更深邃 */
+    --metal-gray: #333333; /* 文字颜色更深，对比更清晰 */
+    --light-gray: #f7f9fa;
     --pearl-white: #ffffff;
     --accent-color: #D4AF37; 
     --main-font: 'Noto Sans SC', sans-serif;
@@ -10,178 +10,94 @@
 }
 
 /* 基础重置与排版 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth; 
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     font-family: var(--main-font);
     line-height: 1.8;
     color: var(--metal-gray);
     background-color: var(--pearl-white);
+    overflow-x: hidden; /* 防止横向滚动条 */
 }
+img { max-width: 100%; height: auto; display: block; }
 
-img {
-    max-width: 100%;
-    display: block;
-}
+/* 标题和文本样式优化 */
+h1, h2, h3, h4 { font-family: var(--heading-font); color: var(--deep-blue); margin-bottom: 1rem; font-weight: 700;}
+h1 { font-size: 3.2rem; line-height: 1.3; }
+h2 { font-size: 2.8rem; text-align: center; margin-bottom: 1.5rem; }
+h3 { font-size: 1.6rem; margin-bottom: 1.5rem;}
+h4 { font-size: 1.1rem; color: var(--deep-blue); font-family: var(--main-font); font-weight: 700;}
+p { margin-bottom: 1rem; color: #555;}
+a { color: var(--accent-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* ... 此处 h1, h2, h3, h4, p, a, .content-section, .section-intro, .alt-bg 样式与之前版本相同 ... */
-
-
-/* 更新导航栏 */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* 布局容器 */
+.container {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.main-nav {
-    max-width: 1200px;
+    max-width: 1140px; /* 设定一个最大宽度，让内容居中，更大气 */
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 2rem;
+    padding: 0 2rem;
 }
 
-/* Logo 容器 */
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-.logo-img {
-    height: 40px;
-    margin-right: 10px;
-}
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-.logo-en {
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--deep-blue);
-    line-height: 1;
-}
-.logo-cn {
-    font-family: var(--main-font);
-    font-size: 0.7rem;
-    color: var(--metal-gray);
-    letter-spacing: 1px;
-}
+.content-section { padding: 6rem 0; }
+.section-intro { text-align: center; font-size: 1.1rem; max-width: 760px; margin: 0 auto 4rem auto; color: #666; }
+.alt-bg { background-color: var(--light-gray); }
 
+/* 导航栏 */
+.main-header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.main-nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo-container { display: flex; align-items: center; text-decoration: none; }
+.logo-img { height: 45px; /* 稍微增大Logo */ margin-right: 12px; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-en { font-family: var(--heading-font); font-size: 1.6rem; font-weight: 700; color: var(--deep-blue); line-height: 1; }
+.logo-cn { font-family: var(--main-font); font-size: 0.7rem; color: var(--metal-gray); letter-spacing: 1px; opacity: 0.8; }
+.main-nav ul { list-style: none; display: flex; }
+.main-nav ul li { margin-left: 2.5rem; }
+.main-nav ul li a { color: var(--metal-gray); text-decoration: none; font-weight: 700; transition: color 0.3s ease; }
+.main-nav ul li a:hover { color: var(--accent-color); }
 
-.main-nav ul {
-    list-style: none;
-    display: flex;
-}
+/* 首页英雄区域 */
+.hero-section { position: relative; height: 100vh; color: var(--pearl-white); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 2rem; background-image: url('hero-background.jpg'); background-size: cover; background-position: center; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 34, 64, 0.75); z-index: 1; }
+.hero-content { position: relative; z-index: 2; max-width: 800px; /* 控制文本宽度 */}
+.hero-content h1 { color: var(--pearl-white); }
+.hero-content p { font-size: 1.2rem; margin: 1.5rem auto 2.5rem auto; opacity: 0.9; }
+.cta-button { background-color: var(--accent-color); color: var(--deep-blue); padding: 1rem 2.5rem; border-radius: 5px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s ease, background-color 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+.cta-button:hover { background-color: #EACD65; text-decoration: none; transform: translateY(-3px); }
 
-.main-nav ul li {
-    margin-left: 2rem;
-}
+/* 服务内容区域 */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; text-align: center; }
+.service-icon { height: 60px; margin: 0 auto 1.5rem auto; }
+.service-item ul { list-style: none; text-align: left; padding-left: 0; }
+.service-item li { margin-bottom: 1.5rem; }
+.service-item li p { font-size: 0.95rem; color: #555; }
 
-.main-nav ul li a {
-    color: var(--metal-gray);
-    text-decoration: none;
-    font-weight: 700;
-    transition: color 0.3s ease;
-}
+/* 收费模式区域 */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.pricing-item { background-color: var(--pearl-white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.07); text-align: center; }
 
-.main-nav ul li a:hover {
-    color: var(--accent-color);
-}
+/* 关于我们区域 - 核心修正 */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-image img { border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); width: 100%; /* 关键：让图片宽度充满其容器 */ height: 100%; object-fit: cover; /* 关键：保持比例并裁剪 */}
 
-/* 更新首页英雄区域 */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    color: var(--pearl-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    padding-top: 80px; 
-    /* 添加背景图片 */
-    background-image: url('hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-}
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 51, 102, 0.7); /* 深蓝色半透明遮罩 */
-    z-index: 1;
-}
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* ... 此处 .hero-content h1, p, .cta-button 样式与之前版本相同 ... */
-
-
-/* ... 此处 .services-grid, .pricing-grid 样式与之前版本相同 ... */
-
-
-/* 更新关于我们区域 */
-.about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-.about-image img {
-    border-radius: 5px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-
-/* 更新页脚 */
-.main-footer {
-    background-color: var(--deep-blue);
-    color: var(--pearl-white);
-    text-align: center;
-    padding: 3rem 2rem;
-}
-.footer-logo {
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-}
-
-/* ... 此处 .main-footer a, p, .copyright, .disclaimer 样式与之前版本相同 ... */
-
+/* 页脚 */
+.main-footer { background-color: var(--deep-blue); color: var(--pearl-white); text-align: center; padding: 4rem 0; }
+.footer-logo { font-family: var(--heading-font); font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.9; }
+.main-footer a { color: var(--pearl-white); }
+.main-footer p { margin-bottom: 0.5rem; opacity: 0.8; }
+.main-footer .copyright { font-size: 0.9rem; margin-top: 2rem; }
+.main-footer .disclaimer { font-size: 0.8rem; opacity: 0.6; }
 
 /* 响应式设计 - 针对移动设备 */
-@media (max-width: 768px) {
-    /* ... 此处 h1, h2 样式与之前版本相同 ... */
+@media (max-width: 992px) {
+    .about-grid { grid-template-columns: 1fr; }
+}
 
-    .main-nav {
-        flex-direction: column;
-    }
-    .main-nav ul {
-        margin-top: 1rem;
-    }
-    .about-grid {
-        grid-template-columns: 1fr; /* 在小屏幕上，文字和图片堆叠 */
-    }
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    .main-nav { flex-direction: column; height: auto; padding: 1rem; }
+    .main-nav ul { margin-top: 1rem; flex-wrap: wrap; justify-content: center;}
+    .main-nav ul li { margin: 0.5rem; }
+    main { padding-top: 120px; /* 增加内边距，防止被折叠后的导航栏遮挡 */ }
 }
